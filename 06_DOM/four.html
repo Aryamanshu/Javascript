@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>chai or code | DOM </title>
+</head>
+<body style="background-color: #212121; color: #fff">
+
+    <ul class="language" >
+        <li>Javascript</li>
+
+    </ul>
+    
+</body>
+
+<script>
+
+// here i creayted a func to add multiple list items to the webpage so that we dont have to add one by one for evrry list item
+
+    function addlang(langName) {
+        const li = document.createElement('li');
+        li.innerHTML = `${langName}`
+        document.querySelector('.language').appendChild(li);
+    }
+
+    addlang("python")
+    addlang("CSS")
+    addlang("HTML")
+
+// more optimised eay of adding list items
+   
+        function addOptilang(langName){
+        const li = document.createElement('li');
+        li.appendChild(document.createTextNode(langName)) // is line se traversing nhi hogi good appproach for  big projects 
+        // hamesha innerText k peeche bhagne ki adat shi ni hti h
+        document.querySelector('.language').appendChild(li); 
+
+    }
+
+    addOptilang("golang")
+
+
+    // EDIT ELEMENT IN DOM
+
+     const secondLang = document.querySelector("li:nth-child(2)")
+     // secondLang.innerHTML = "C++" // not optimised way but good for 5-10 values isme kya hi optimise krengy
+     const newli = document.createElement('li')
+     newli.textContent = "MOJO" // basiic way
+     secondLang.replaceWith(newli) // this is the best way to edit the element in DOM
+
+
+     // 2nd way for EDIT    
+
+     const firstLang = document.querySelector("li:first-child")
+     firstLang.outerHTML = '<li>TYpESCRIPT</li>'
+
+
+     // remove element in DOM
+
+     const lastLang = document.querySelector('li:last-child')
+     lastLang.remove() // this is the best way to remove the element in DOM.
+
+     
+</script>
+</html>
