@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>codeeee</title>
+</head>
+<body>
+    
+    <h1>Aryamanshu Mishra Coderrr</h1>
+    
+    <button id="start">START</button>
+    <button id="stop">STOP</button>
+
+</body>
+
+<script> 
+    let intervalId = null;
+
+    const sayDate = function(str){
+      console.log(str, Date.now());
+    }
+
+    document.querySelector('#start').addEventListener('click', function(){
+        if (intervalId === null) { // Check if intervalId is null
+            intervalId = setInterval(sayDate, 1000, "hii")
+           // console.log("start clicked")
+        }
+    })  
+    
+    document.querySelector('#stop').addEventListener('click', function(){
+        if (intervalId !== null) { // Check if intervalId is not null
+            clearInterval(intervalId)
+            intervalId = null;
+          //  console.log("stop clicked")
+        }
+    })
+</script>
+</html>
+
+
+
+<!-- // SetTimeout(function/function reference,milliseconds) 
+    //ClearTimeout(variable which hold the reference of settimeout)
+   // SetInterval(function /functiom reference, milisecond) - repeat until we clear it. 
+   // ClearInterval(reverence of function) -->
